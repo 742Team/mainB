@@ -31,7 +31,7 @@ router.post("/user/signup", async (req, res) => {
                     },
                     // nous verrons plus tard comment uploader une image
 
-                    newsletter: req.fields.newsletter,
+                    // newsletter: req.fields.newsletter,
                     token: tokenUser,
                     hash: hashUser,
                     salt: saltUser,
