@@ -36,7 +36,7 @@ router.post("/user/signup", async (req, res) => {
                     hash: hashUser,
                     salt: saltUser,
                 });
-                //! On vient de créer un user et on save
+                // ! On vient de créer un user et on save
                 // const pictureToUpload = req.files.picture.path;
                 // const result = await cloudinary.uploader.upload(
                     // pictureToUpload,
@@ -48,14 +48,14 @@ router.post("/user/signup", async (req, res) => {
 
                 // newUser.avatar = pictureLinkSecure;
 
-                // await newUser.save();
-                // res.status(200).json({
-                    // _id: newUser.id,
-                    // token: tokenUser,
-                    // account: {
-                        // username: req.fields.username,
-                    // },
-                // });
+                await newUser.save();
+                res.status(200).json({
+                    _id: newUser.id,
+                    token: tokenUser,
+                    account: {
+                        username: req.fields.username,
+                    },
+                });
             } else {
                 res.status(400).json({ message: "User already exist" });
             }
